@@ -1,3 +1,0 @@
-/home/suyash/Documents/projects/cpp/Box-Busters/build/_deps/sfml-subbuild/CMakeFiles/sfml-populate.dir
-/home/suyash/Documents/projects/cpp/Box-Busters/build/_deps/sfml-subbuild/CMakeFiles/edit_cache.dir
-/home/suyash/Documents/projects/cpp/Box-Busters/build/_deps/sfml-subbuild/CMakeFiles/rebuild_cache.dir
