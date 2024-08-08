@@ -12,7 +12,7 @@ Game ::Game()
 void Game::update()
 {
     pollevents();
-
+ 
     if (endgame == false)
     {
 

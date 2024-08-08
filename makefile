@@ -14,4 +14,4 @@ game.o: ./src/game.cpp ./include/game.hpp
 
 clean:
 	rm -f main.o game.o game.out
- 
+  
