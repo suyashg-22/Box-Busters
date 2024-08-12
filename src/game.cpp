@@ -64,52 +64,25 @@ void Game::pollevents()
     }
 }
 
-void Game::spawnenemies()
+
+void Game ::updatemousepositions()
 {
-    enemy.setPosition(
-        static_cast<float>(rand() % static_cast<int>(m_window->getSize().x - enemy.getSize().x)),
-        0.f);
-
-    // randomise enemy
-
-    int type = rand() % 5;
-
-    switch (type)
-    {
-
-    case 0:
-        enemy.setSize(sf::Vector2f(30.f, 30.f));
-        enemy.setFillColor(sf::Color::Magenta);
-        break;
-
-    case 1:
-        enemy.setSize(sf::Vector2f(50.f, 50.f));
-        enemy.setFillColor(sf::Color::Blue);
-        break;
-
-    case 2:
-        enemy.setSize(sf::Vector2f(70.f, 70.f));
-        enemy.setFillColor(sf::Color::Cyan);
-        break;
-
-    case 3:
-        enemy.setSize(sf::Vector2f(85.f, 85.f));
-        enemy.setFillColor(sf::Color::Red);
-        break;
-
-    case 4:
-        enemy.setSize(sf::Vector2f(100.f, 100.f));
-        enemy.setFillColor(sf::Color::Green);
-        break;
-
-    default:
-        enemy.setSize(sf::Vector2f(100.f, 100.f));
-        enemy.setFillColor(sf::Color::Yellow);
-        break;
-    }
-
-    enemies.push_back(enemy);
+    mouseposwindow = sf::Mouse::getPosition(*m_window);
+    mouseposview = m_window->mapPixelToCoords(mouseposwindow);
 }
+
+
+
+void Game ::updatetext()
+{
+
+    std::stringstream ss;
+
+    ss << "Points: " << points << "\n"
+       << "Health: " << health << "\n";
+    uitext.setString(ss.str());
+}
+
 
 void Game::updateenemies()
 {
@@ -127,7 +100,6 @@ void Game::updateenemies()
             EnemySpawnTimer += 1.f;
         }
     }
-
 
     // check if clicked upon
 
@@ -186,6 +158,55 @@ void Game::updateenemies()
     }
 }
 
+
+
+void Game::spawnenemies()
+{
+    enemy.setPosition(
+        static_cast<float>(rand() % static_cast<int>(m_window->getSize().x - enemy.getSize().x)),
+        0.f);
+
+    // randomise enemy
+
+    int type = rand() % 5;
+
+    switch (type)
+    {
+
+    case 0:
+        enemy.setSize(sf::Vector2f(30.f, 30.f));
+        enemy.setFillColor(sf::Color::Magenta);
+        break;
+
+    case 1:
+        enemy.setSize(sf::Vector2f(50.f, 50.f));
+        enemy.setFillColor(sf::Color::Blue);
+        break;
+
+    case 2:
+        enemy.setSize(sf::Vector2f(70.f, 70.f));
+        enemy.setFillColor(sf::Color::Cyan);
+        break;
+
+    case 3:
+        enemy.setSize(sf::Vector2f(85.f, 85.f));
+        enemy.setFillColor(sf::Color::Red);
+        break;
+
+    case 4:
+        enemy.setSize(sf::Vector2f(100.f, 100.f));
+        enemy.setFillColor(sf::Color::Green);
+        break;
+
+    default:
+        enemy.setSize(sf::Vector2f(100.f, 100.f));
+        enemy.setFillColor(sf::Color::Yellow);
+        break;
+    }
+
+    enemies.push_back(enemy);
+}
+
 void Game::renderenemies(sf::RenderTarget &target)
 {
     for (auto &e : enemies)
@@ -194,21 +215,7 @@ void Game::renderenemies(sf::RenderTarget &target)
     }
 }
 
-void Game ::updatemousepositions()
-{
-    mouseposwindow = sf::Mouse::getPosition(*m_window);
-    mouseposview = m_window->mapPixelToCoords(mouseposwindow);
-}
 
-void Game ::updatetext()
-{
-
-    std::stringstream ss;
-
-    ss << "Points: " << points << "\n"
-       << "Health: " << health << "\n";
-    uitext.setString(ss.str());
-}
 
 void ::Game ::rendertext(sf::RenderTarget &target)
 {
