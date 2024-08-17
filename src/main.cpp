@@ -14,7 +14,7 @@ int main()
     game.update();
 
     //render
-    game.render();
+    game.render(); 
 
   }
   return 0; 

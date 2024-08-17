@@ -6,7 +6,7 @@ Game ::Game()
     initwindows();
     initenemies();
     initfonts();
-    inittext();
+    inittext(); 
 }
 
 void Game::update()
