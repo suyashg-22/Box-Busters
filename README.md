@@ -63,12 +63,6 @@ game.exe     # Windows
 
 ---
 
-## 📸 Preview
-
-> Add screenshots or gameplay GIFs here for better attraction 🚀
-
----
-
 ## 🧠 Tech Stack
 
 * **C++**
